@@ -1,0 +1,13 @@
+{
+	"name": "hexo-remove-unused-recourse",
+	"version": "1.0.0",
+	"description": "Remove images and other resources that are not used by hexo",
+	"main": "index.js",
+	"scripts": {
+		"test": "node test.js",
+		"start": "node index.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"bin": "./index.js"
+}
