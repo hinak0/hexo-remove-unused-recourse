@@ -1,7 +1,7 @@
-import fs from 'fs'
-import path from 'path'
-import YAML from 'yaml'
-import readline from 'readline'
+const fs = require('fs')
+const path = require('path')
+const YAML = require('yaml')
+const readline = require('readline')
 
 const HexoConfigPath = './_config.yml'
 const imageFormats = [
