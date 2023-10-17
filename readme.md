@@ -3,9 +3,10 @@
 去除hexo项目中不再被引用的资源
 
 ## 使用方法
-1. 首先在hexo根目录运行`hexo-remove-unused-recourse`，会生成待删除列表`unusedRecs.list`在根目录。
-2. 对这个列表进行自定义修改
-3. 再次运行`hexo-remove-unused-recourse`，回车确认，执行删除。
+1. `npm i hexo-remove-unused-recourse -g`安装
+2. 首先在hexo根目录运行`hexo-remove-unused-recourse`，会生成待删除列表`unusedRecs.list`在根目录。
+3. 对这个列表进行自定义修改
+4. 再次运行`hexo-remove-unused-recourse`，回车确认，执行删除。
 
 ## 工作流程
 1. 读取主目录中的hexo配置，获取source和recourse文件
