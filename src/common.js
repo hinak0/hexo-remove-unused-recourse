@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import YAML from 'yaml'
+import readline from 'readline'
 
 const HexoConfigPath = './_config.yml'
 const imageFormats = [
@@ -68,4 +69,40 @@ const getRefs = (files, rootDir = './source') => {
 	return images
 }
 
-export { parseHexoConfig, findMarkdownAndRec, getRefs }
+const getUnUsedRecList = () => {
+	const srcDir = parseHexoConfig()
+	const MarkdownAndRec = findMarkdownAndRec(srcDir)
+	const mds = MarkdownAndRec.mdFiles
+	const recs = MarkdownAndRec.recFiles
+
+	const usedRecs = getRefs(mds, srcDir)
+	return recs.filter(item => !usedRecs.includes(item))
+}
+
+const deleteFileList = fileList => {
+	fileList.forEach(fileName => {
+		fs.unlink(fileName, err => {
+			if (err) {
+				console.error(`无法删除文件 ${fileName}: ${err}`)
+			} else {
+				console.log(`已删除文件 ${fileName}`)
+			}
+		})
+	})
+}
+
+const readListFromFile = filePath => {
+	try {
+		const data = fs.readFileSync(filePath, 'utf8')
+		const lines = data.split('\n')
+		if (lines[lines.length - 1] === '') {
+			lines.pop()
+		}
+		return lines
+	} catch (error) {
+		console.error('读取文件时出错:', error)
+		return []
+	}
+}
+
+export { getUnUsedRecList, deleteFileList, readListFromFile }
