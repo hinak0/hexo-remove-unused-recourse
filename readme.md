@@ -1,6 +1,6 @@
 # hexo-remove-unused-recourse
 
-去除hexo项目中不再被引用的资源
+去除hexo项目中不再被引用的资源，无任何依赖
 
 ## 使用方法
 1. `npm i hexo-remove-unused-recourse -g`安装

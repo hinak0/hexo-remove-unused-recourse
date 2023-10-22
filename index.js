@@ -1,6 +1,9 @@
+#!/usr/bin/env node
+
+'use strict'
+
 const fs = require('fs')
 const path = require('path')
-const YAML = require('yaml')
 const readline = require('readline')
 
 const HexoConfigPath = './_config.yml'
@@ -25,8 +28,9 @@ const output = 'unusedRecs.list'
 const parseHexoConfig = () => {
 	try {
 		const f = fs.readFileSync(HexoConfigPath, 'utf8')
-		const hexo_config = YAML.parse(f)
-		return hexo_config.source_dir
+		const reg = /source_dir:\s*(\S+)/
+		const source_dir = f.match(reg)[1]
+		return source_dir
 	} catch (error) {
 		console.error('读取或解析YAML文件时出错:', error)
 		throw error

@@ -1,6 +1,6 @@
 {
 	"name": "hexo-remove-unused-recourse",
-	"version": "0.1.3",
+	"version": "0.2.1",
 	"description": "Remove images and other resources that are not used by hexo",
 	"keywords": [
 		"hexo",
@@ -13,9 +13,6 @@
 	"author": "hinak0 <hinak0@qq.com>",
 	"license": "ISC",
 	"bin": "./index.js",
-	"dependencies": {
-		"yaml": "^2.3.3"
-	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/hinak0/hexo-remove-unused-recourse"
